@@ -3,20 +3,20 @@ const {adminAuth,userAuth} = require("./middlewares/auth");
 
 const app = express();
 
-app.use("/user",userAuth);
+// app.use("/user",userAuth);
 
-app.use("/admin",adminAuth);
+// app.use("/admin",adminAuth);
 
-app.get("/user/getUserData",(req,res)=>{
-    res.send("User data added");
+app.get("/userdata",(req,res)=>{
+
+    throw new Error("jhfgjhsd");
+    res.send("data");
 });
 
-app.get("/admin/getAllData",(req,res)=>{
-    res.send("Admin data added succesfully");
-});
-
-app.get("/admin/DeleteAdmin",(req,res)=>{
-    res.send("Admin Deleted");
+app.use("/",(err,req,res,next)=>{
+    if(err){
+        res.status(500).send("Something went wrong");
+    }
 });
 
 app.listen(4444,()=>{

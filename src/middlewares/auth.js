@@ -14,7 +14,7 @@ const adminAuth = (req,res,next)=>{
 };
 
 
-const userAuth = (req,res,next)=>{
+const studentAuth = (req,res,next)=>{
     console.log("User getting authenticated");
 
     const token = "xyz";
@@ -27,5 +27,4 @@ const userAuth = (req,res,next)=>{
         next();
     }
 };
-
-module.exports = {adminAuth,userAuth};
+module.exports = {adminAuth};
