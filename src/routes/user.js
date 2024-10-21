@@ -29,23 +29,22 @@ userRouter.get("/user/connections", userAuth, async (req, res) => {
 
     const connections = await ConnectionRequest.find({
       $or: [
-        { toUserId: loggedInUser, status: "accepted" },
-        { fromUserId: loggedInUser, status: "accepted" },
+        { toUserId: loggedInUser._id, status: "accepted" },
+        { fromUserId: loggedInUser._id, status: "accepted" },
       ],
     })
       .populate("fromUserId", USER_SAFE_DATA)
       .populate("toUserId", USER_SAFE_DATA);
 
     const data = connections.map((row) => {
-      if (row.fromUserId.toString() === loggedInUser._id.toString()) {
-        return toUserId;
+      if (row.fromUserId._id.toString() === loggedInUser._id.toString()) {
+        return row.toUserId;
       }
       return row.fromUserId;
     });
 
     res.json({
-      message: "User connections fetched successfully",
-      data: data,
+      data
     });
   } catch (err) {
     res.status(400).json({ message: "ERROR: " + err.message });
@@ -71,7 +70,6 @@ userRouter.get("/feed", userAuth, async (req, res) => {
       hideUsersFromFeed.add(req.fromUserId.toString());
       hideUsersFromFeed.add(req.toUserId.toString());
     });
-    console.log(hideUsersFromFeed);
 
     const users = await User.find({
       $and: [

@@ -16,11 +16,12 @@ const validateEditProfileData = (req) => {
   const allowedEditFields = [
     "firstName",
     "lastName",
-    "age",
-    "skills",
-    "about",
+    "emailId",
     "photoUrl",
     "gender",
+    "age",
+    "about",
+    "skills",
   ];
 
   const isAllowed = Object.keys(req.body).every((key) => allowedEditFields.includes(key));
