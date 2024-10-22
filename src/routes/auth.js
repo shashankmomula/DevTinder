@@ -15,7 +15,6 @@ authRouter.post("/signup", async (req, res) => {
 
     const passwordHash = await bcrypt.hash(password, 10);
 
-   
     const user = new User({
       firstName,
       lastName,
@@ -23,10 +22,15 @@ authRouter.post("/signup", async (req, res) => {
       password: passwordHash,
     });
 
-    await user.save();
-    res.send("User added suceessfully");
+    const savedUser = await user.save();
+    const token = await savedUser.getJWT();
+
+    res.cookie("token", token, {
+      expires: new Date(Date.now() + 8 * 3600000),
+    });
+    res.send({ message: "User added successfully", data: savedUser });
   } catch (err) {
-    res.status(400).send("ERROR: " + err.message);
+    res.status(400).send("ERROR: User already exists");
   }
 });
 

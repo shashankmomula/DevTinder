@@ -44,7 +44,7 @@ userRouter.get("/user/connections", userAuth, async (req, res) => {
     });
 
     res.json({
-      data
+      data,
     });
   } catch (err) {
     res.status(400).json({ message: "ERROR: " + err.message });
