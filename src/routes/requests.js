@@ -4,7 +4,8 @@ const ConnectionRequest = require("../models/connectionRequest");
 const requestRouter = express.Router();
 const User = require("../models/user");
 
-requestRouter.post( "/request/send/:status/:toUserId",
+requestRouter.post(
+  "/request/send/:status/:toUserId",
   userAuth,
   async (req, res) => {
     try {
@@ -63,7 +64,8 @@ requestRouter.post( "/request/send/:status/:toUserId",
   }
 );
 
-requestRouter.post("/request/review/:status/:requestId",
+requestRouter.post(
+  "/request/review/:status/:requestId",
   userAuth,
   async (req, res) => {
     try {

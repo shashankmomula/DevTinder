@@ -21,3 +21,18 @@
 - GET /user/connections
 - GET /user/requests
 - GET /user/feed - Gets you the profiles of other users on platform
+
+# Websockets
+
+intro to websocket and socket.io
+shift to http server from express passing express app to http server 
+socket.js in utils and io.on
+about socket.on() functions
+
+frontend integration by creating socket.js in utils folder
+useEffect hook in chat to connect when page renders
+about optional chaining user?._id why user will be nulll for the first time
+the emitting the events
+
+backed code for handling the events
+
