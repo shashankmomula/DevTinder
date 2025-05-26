@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "devtinder",
   "version": "1.0.0",
@@ -24,3 +25,31 @@
     "validator": "^13.12.0"
   }
 }
+=======
+{
+  "name": "devtinder",
+  "version": "1.0.0",
+  "description": "Tinder for Developers",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript"
+  ],
+  "author": "shashank",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.0",
+    "nodemon": "^3.1.9",
+    "validator": "^13.12.0"
+  }
+}
+>>>>>>> afe28b91efe077d6e038f131a6dc1695a2927a94
